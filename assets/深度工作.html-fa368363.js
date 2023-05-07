@@ -1,0 +1,1 @@
+import{_ as t,X as _,Y as s,Z as e,$ as a}from"./framework-ac1910cc.js";const c={},o=e("h1",{id:"谈深度工作",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#谈深度工作","aria-hidden":"true"},"#"),a(" 谈深度工作")],-1),n=e("p",null,"test",-1),r=[o,n];function d(i,l){return _(),s("div",null,r)}const f=t(c,[["render",d],["__file","深度工作.html.vue"]]);export{f as default};
