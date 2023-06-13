@@ -6,10 +6,32 @@
     <link>https://oshibuki.github.io/</link>
     <description>混乱世界的一点想法</description>
     <language>zh-CN</language>
-    <pubDate>Tue, 09 May 2023 11:07:35 GMT</pubDate>
-    <lastBuildDate>Tue, 09 May 2023 11:07:35 GMT</lastBuildDate>
+    <pubDate>Tue, 13 Jun 2023 04:00:26 GMT</pubDate>
+    <lastBuildDate>Tue, 13 Jun 2023 04:00:26 GMT</lastBuildDate>
     <generator>vuepress-plugin-feed2</generator>
     <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <item>
+      <title>在wsl2中安装pytorch的注意事项</title>
+      <link>https://oshibuki.github.io/note/%E5%9C%A8wsl2%E4%B8%AD%E5%AE%89%E8%A3%85pytorch.html</link>
+      <guid>https://oshibuki.github.io/note/%E5%9C%A8wsl2%E4%B8%AD%E5%AE%89%E8%A3%85pytorch.html</guid>
+      <source url="https://oshibuki.github.io/rss.xml">在wsl2中安装pytorch的注意事项</source>
+      <description>在wsl2中安装pytorch的注意事项</description>
+      <pubDate>Tue, 13 Jun 2023 03:59:22 GMT</pubDate>
+      <content:encoded><![CDATA[<h1> 在wsl2中安装pytorch的注意事项</h1>
+<h2> wslg 与wsl 安装</h2>
+<p>在wsl中运行像PyTorch这样的深度学习框架的关键是WSLg扩展。此扩展允许 WSL2 使用你的 GPU。这适用于英特尔，AMD和Nvidia GPU。它仍处于预览状态，因此可能包含错误。
+<a href="https://github.com/microsoft/wslg" target="_blank" rel="noopener noreferrer">https://github.com/microsoft/wslg</a></p>
+<div class="language-text line-numbers-mode" data-ext="text"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h2> 在wsl中安装cuda工具包</h2>
+<p><a href="https://developer.nvidia.com/cuda-11-7-1-download-archive?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0&amp;target_type=deb_local" target="_blank" rel="noopener noreferrer">https://developer.nvidia.com/cuda-11-7-1-download-archive?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0&amp;target_type=deb_local</a></p>
+<p>此处需要格外注意，<strong>官网给出的命令顺序有误</strong>。</p>
+<div class="language-text line-numbers-mode" data-ext="text"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>直接运行第四行<code>sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb</code>会报错：</p>
+<div class="language-The line-numbers-mode" data-ext="The"><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>此处的cuda-96193861-keyring.gpg可能和实际文件名称不符，应先运行第五行安装密钥：</p>
+<p><code>sudo cp /var/cuda-repo-wsl-ubuntu-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/</code></p>
+<p>再运行第四行即可。</p>
+<h2> 安装pytorch</h2>
+<p><code>pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118</code></p>
+]]></content:encoded>
+    </item>
     <item>
       <title>技术与时间3</title>
       <link>https://oshibuki.github.io/book/%E6%8A%80%E6%9C%AF%E4%B8%8E%E6%97%B6%E9%97%B4.html</link>
